@@ -80,8 +80,8 @@ const SubjectForm = () => {
           </div>
         ))}
       </div>
-      <div className="w-full md:w-1/2 p-4">
-        <table className="table-auto w-full">
+      <div className="w-full md:w-1/2 p-4 overflow-x-auto">
+        <table className="table-auto min-w-full">
           <thead>
             <tr>
               <th className="px-4 py-2">Subject Name</th>
