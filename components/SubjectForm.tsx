@@ -41,23 +41,27 @@ const SubjectForm = () => {
       {subjects.map((subject, index) => (
         <div key={index}>
           <input
+            className="text-black"
             value={subject.name}
             onChange={(e) => updateSubject(index, 'name', e.target.value)}
             placeholder="Subject Name"
           />
           <input
+            className="text-black"
             type="number"
             value={subject.finalMarks}
             onChange={(e) => updateSubject(index, 'finalMarks', Number(e.target.value))}
             placeholder="Final Marks"
           />
           <input
+            className="text-black"
             type="number"
             value={subject.internalMarks}
             onChange={(e) => updateSubject(index, 'internalMarks', Number(e.target.value))}
             placeholder="Internal Marks"
           />
           <input
+            className="text-black"
             type="number"
             value={subject.midtermMarks}
             onChange={(e) => updateSubject(index, 'midtermMarks', Number(e.target.value))}
