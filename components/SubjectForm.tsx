@@ -28,7 +28,7 @@ const SubjectForm = () => {
 
   const calculateGrade = (subject: Subject) => {
     const totalMarks = (subject.finalMarks / 2) + (subject.midtermMarks / 2) + subject.internalMarks;
-    if (totalMarks <= 40) return 'Pass';
+    if (subject.finalMarks < 35 || totalMarks < 40) return 'Fail';
     if (totalMarks < 51) return 'D';
     if (totalMarks < 61) return 'C';
     if (totalMarks < 71) return 'B';
@@ -56,6 +56,7 @@ const SubjectForm = () => {
               value={subject.finalMarks}
               onChange={(e) => updateSubject(index, 'finalMarks', Number(e.target.value))}
               placeholder="Final Marks"
+              max={100}
             />
             <label className="text-gray-600">Internal Marks</label>
             <input
@@ -64,6 +65,7 @@ const SubjectForm = () => {
               value={subject.internalMarks}
               onChange={(e) => updateSubject(index, 'internalMarks', Number(e.target.value))}
               placeholder="Internal Marks"
+              max={25}
             />
             <label className="text-gray-600">Midterm Marks</label>
             <input
@@ -72,6 +74,7 @@ const SubjectForm = () => {
               value={subject.midtermMarks}
               onChange={(e) => updateSubject(index, 'midtermMarks', Number(e.target.value))}
               placeholder="Midterm Marks"
+              max={50}
             />
             <button className="bg-red-500 text-white rounded-md p-2 mt-2" onClick={() => removeSubject(index)}>Remove</button>
           </div>
