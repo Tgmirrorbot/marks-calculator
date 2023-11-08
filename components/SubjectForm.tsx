@@ -44,14 +44,14 @@ const SubjectForm = () => {
           <div key={index} className="flex flex-col space-y-2 mt-4">
             <label className="text-gray-600">Subject Name</label>
             <input
-              className="border-2 border-gray-200 rounded-md p-2 text-black"
+              className="border-2 border-gray-200 rounded-md p-2 text-black md:text-base"
               value={subject.name}
               onChange={(e) => updateSubject(index, 'name', e.target.value)}
               placeholder="Subject Name"
             />
             <label className="text-gray-600">Final Marks (out of 100)</label>
             <input
-              className="border-2 border-gray-200 rounded-md p-2 text-black"
+              className="border-2 border-gray-200 rounded-md p-2 text-black md:text-base"
               type="number"
               value={subject.finalMarks}
               onChange={(e) => updateSubject(index, 'finalMarks', Number(e.target.value))}
@@ -60,7 +60,7 @@ const SubjectForm = () => {
             />
             <label className="text-gray-600">Internal Marks (out of 25)</label>
             <input
-              className="border-2 border-gray-200 rounded-md p-2 text-black"
+              className="border-2 border-gray-200 rounded-md p-2 text-black md:text-base"
               type="number"
               value={subject.internalMarks}
               onChange={(e) => updateSubject(index, 'internalMarks', Number(e.target.value))}
@@ -69,7 +69,7 @@ const SubjectForm = () => {
             />
             <label className="text-gray-600">Midterm Marks (out of 50)</label>
             <input
-              className="border-2 border-gray-200 rounded-md p-2 text-black"
+              className="border-2 border-gray-200 rounded-md p-2 text-black md:text-base"
               type="number"
               value={subject.midtermMarks}
               onChange={(e) => updateSubject(index, 'midtermMarks', Number(e.target.value))}
@@ -80,7 +80,7 @@ const SubjectForm = () => {
           </div>
         ))}
       </div>
-      <div className="w-full md:w-1/2 p-4 overflow-x-auto">
+      <div className="w-full md:w-1/2 p-4 md:overflow-visible overflow-x-auto">
         <table className="table-auto min-w-full">
           <thead>
             <tr>
