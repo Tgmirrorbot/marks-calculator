@@ -42,14 +42,14 @@ const SubjectForm = () => {
         <div key={index} className="flex flex-col space-y-2">
           <label className="text-gray-600">Subject Name</label>
           <input
-            className="border-2 border-gray-200 rounded-md p-2"
+            className="border-2 border-gray-200 rounded-md p-2 text-black"
             value={subject.name}
             onChange={(e) => updateSubject(index, 'name', e.target.value)}
             placeholder="Subject Name"
           />
           <label className="text-gray-600">Final Marks</label>
           <input
-            className="border-2 border-gray-200 rounded-md p-2"
+            className="border-2 border-gray-200 rounded-md p-2 text-black"
             type="number"
             value={subject.finalMarks}
             onChange={(e) => updateSubject(index, 'finalMarks', Number(e.target.value))}
@@ -57,7 +57,7 @@ const SubjectForm = () => {
           />
           <label className="text-gray-600">Internal Marks</label>
           <input
-            className="border-2 border-gray-200 rounded-md p-2"
+            className="border-2 border-gray-200 rounded-md p-2 text-black"
             type="number"
             value={subject.internalMarks}
             onChange={(e) => updateSubject(index, 'internalMarks', Number(e.target.value))}
@@ -65,7 +65,7 @@ const SubjectForm = () => {
           />
           <label className="text-gray-600">Midterm Marks</label>
           <input
-            className="border-2 border-gray-200 rounded-md p-2"
+            className="border-2 border-gray-200 rounded-md p-2 text-black"
             type="number"
             value={subject.midtermMarks}
             onChange={(e) => updateSubject(index, 'midtermMarks', Number(e.target.value))}
