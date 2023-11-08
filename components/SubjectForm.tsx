@@ -26,9 +26,12 @@ const SubjectForm = () => {
     setSubjects(newSubjects);
   };
 
-  const calculateGrade = (subject: Subject) => {
-    const totalMarks = (subject.finalMarks / 2) + (subject.midtermMarks / 2) + subject.internalMarks;
-    if (subject.finalMarks < 35 || totalMarks < 40) return 'Fail';
+  const calculateTotalMarks = (subject: Subject) => {
+    return (subject.finalMarks / 2) + (subject.midtermMarks / 2) + subject.internalMarks;
+  };
+
+  const calculateGrade = (totalMarks: number, finalMarks: number) => {
+    if (finalMarks < 35 || totalMarks < 40) return 'Fail';
     if (totalMarks < 51) return 'D';
     if (totalMarks < 61) return 'C';
     if (totalMarks < 71) return 'B';
@@ -88,23 +91,28 @@ const SubjectForm = () => {
               <th className="px-4 py-2">Final Marks</th>
               <th className="px-4 py-2">Internal Marks</th>
               <th className="px-4 py-2">Midterm Marks</th>
+              <th className="px-4 py-2">Total Marks</th>
               <th className="px-4 py-2">Grade</th>
               <th className="px-4 py-2">Action</th>
             </tr>
           </thead>
           <tbody>
-            {subjects.map((subject, index) => (
-              <tr key={index}>
-                <td className="border px-4 py-2">{subject.name}</td>
-                <td className="border px-4 py-2">{subject.finalMarks}</td>
-                <td className="border px-4 py-2">{subject.internalMarks}</td>
-                <td className="border px-4 py-2">{subject.midtermMarks}</td>
-                <td className="border px-4 py-2">{calculateGrade(subject)}</td>
-                <td className="border px-4 py-2">
-                  <button className="bg-red-500 text-white rounded-md p-2" onClick={() => removeSubject(index)}>Remove</button>
-                </td>
-              </tr>
-            ))}
+            {subjects.map((subject, index) => {
+              const totalMarks = calculateTotalMarks(subject);
+              return (
+                <tr key={index}>
+                  <td className="border px-4 py-2">{subject.name}</td>
+                  <td className="border px-4 py-2">{subject.finalMarks}</td>
+                  <td className="border px-4 py-2">{subject.internalMarks}</td>
+                  <td className="border px-4 py-2">{subject.midtermMarks}</td>
+                  <td className="border px-4 py-2">{totalMarks}</td>
+                  <td className="border px-4 py-2">{calculateGrade(totalMarks, subject.finalMarks)}</td>
+                  <td className="border px-4 py-2">
+                    <button className="bg-red-500 text-white rounded-md p-2" onClick={() => removeSubject(index)}>Remove</button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
