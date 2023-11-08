@@ -49,7 +49,7 @@ const SubjectForm = () => {
               onChange={(e) => updateSubject(index, 'name', e.target.value)}
               placeholder="Subject Name"
             />
-            <label className="text-gray-600">Final Marks</label>
+            <label className="text-gray-600">Final Marks (out of 100)</label>
             <input
               className="border-2 border-gray-200 rounded-md p-2 text-black"
               type="number"
@@ -58,7 +58,7 @@ const SubjectForm = () => {
               placeholder="Final Marks"
               max={100}
             />
-            <label className="text-gray-600">Internal Marks</label>
+            <label className="text-gray-600">Internal Marks (out of 25)</label>
             <input
               className="border-2 border-gray-200 rounded-md p-2 text-black"
               type="number"
@@ -67,7 +67,7 @@ const SubjectForm = () => {
               placeholder="Internal Marks"
               max={25}
             />
-            <label className="text-gray-600">Midterm Marks</label>
+            <label className="text-gray-600">Midterm Marks (out of 50)</label>
             <input
               className="border-2 border-gray-200 rounded-md p-2 text-black"
               type="number"
@@ -89,6 +89,7 @@ const SubjectForm = () => {
               <th className="px-4 py-2">Internal Marks</th>
               <th className="px-4 py-2">Midterm Marks</th>
               <th className="px-4 py-2">Grade</th>
+              <th className="px-4 py-2">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -99,6 +100,9 @@ const SubjectForm = () => {
                 <td className="border px-4 py-2">{subject.internalMarks}</td>
                 <td className="border px-4 py-2">{subject.midtermMarks}</td>
                 <td className="border px-4 py-2">{calculateGrade(subject)}</td>
+                <td className="border px-4 py-2">
+                  <button className="bg-red-500 text-white rounded-md p-2" onClick={() => removeSubject(index)}>Remove</button>
+                </td>
               </tr>
             ))}
           </tbody>
