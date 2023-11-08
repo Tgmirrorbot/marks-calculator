@@ -37,8 +37,8 @@ const SubjectForm = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="w-1/2 p-4">
+    <div className="flex flex-col md:flex-row">
+      <div className="w-full md:w-1/2 p-4">
         <button className="bg-blue-500 text-white rounded-md p-2 mt-2" onClick={addSubject}>Add Subject</button>
         {subjects.map((subject, index) => (
           <div key={index} className="flex flex-col space-y-2 mt-4">
@@ -80,7 +80,7 @@ const SubjectForm = () => {
           </div>
         ))}
       </div>
-      <div className="w-1/2 p-4">
+      <div className="w-full md:w-1/2 p-4">
         <table className="table-auto w-full">
           <thead>
             <tr>
