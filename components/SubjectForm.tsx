@@ -64,6 +64,14 @@ const SubjectForm = () => {
       <div className="w-full md:w-1/2 p-4">
         <button className="mt-2 p-2 rounded-md text-white bg-blue-500" onClick={addSubject}>Add Subject</button>
         <button className="mt-2 ml-2 p-2 rounded-md text-white bg-green-500" onClick={handleSurpriseMe}>Surprise Me</button>
+        {showPopup && (
+          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-4 rounded-md">
+              {/* Your popup content goes here */}
+              <button onClick={handlePopupClose}>Close</button>
+            </div>
+          </div>
+        )}
         {subjects.map((subject, index) => (
           <div key={index}>
             {/* The rest of your code goes here */}
